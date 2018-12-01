@@ -6,7 +6,7 @@ import os, shutil, sys, time, re, glob
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2 as cv
-import Image
+from PIL import Image
 import caffe
 
 from utility_functions import *
@@ -130,7 +130,7 @@ def rescaleCropbox(img,cropBox,scale=1.0):
             
             if count > maxCount:
                 # Rescaling has failed. Just return original image
-                print "Error: opencv_functions.imgCrop: Crop scale exceeded image dimensions"
+                print("Error: opencv_functions.imgCrop: Crop scale exceeded image dimensions")
                 return cropBox
 
             if not exceeded:
@@ -279,7 +279,7 @@ def cvCombineTwoImages(img1,img2,buf=2,maxSize=True):
 
   if c1 != c2:
     # Incompatible dimensions
-    print "Error, images have imcompatible dimensions along depth axis"
+    print("Error, images have imcompatible dimensions along depth axis")
     return None
 
   img = np.zeros([h,w,c]).astype(np.uint8)
