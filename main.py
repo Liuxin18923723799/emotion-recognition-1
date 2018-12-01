@@ -31,9 +31,9 @@ dirMisc = 'datasets/misc'
 dirTraining = 'datasets/validation_images'
 
 # Select which dataset to use (case insensitive):
-#dataset = 'jaffe'
+dataset = 'jaffe'
 #dataset = 'ckplus'
-dataset = 'training'
+#dataset = 'training'
 #dataset = 'misc'
 
 # Flags:
