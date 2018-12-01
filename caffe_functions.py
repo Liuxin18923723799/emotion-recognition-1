@@ -6,7 +6,7 @@ import os, shutil, sys, time, re, glob
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2 as cv
-from PIL import Image #import Image
+from PIL import Image
 import caffe
 
 from utility_functions import *

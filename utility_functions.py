@@ -6,12 +6,12 @@ import os, shutil, sys, time, re, glob, csv
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2 as cv
-import Image
+from PIL import Image
 import caffe
 import datetime
-from PIL import Image
 from opencv_functions import *
-import contextlib, cStringIO
+import contextlib
+from io import StringIO
 
 # Plot confusion matrix
 def plot_confusion_matrix(cm, names=None, title='Confusion Matrix', cmap=plt.cm.Blues):
@@ -51,13 +51,13 @@ def confusion_matrix(results, categories, plotConfusion=False):
     accuracy = float(np.trace(matrix))/len(results)
     print('Confusion Matrix: ')
     print(matrix)
-    print 'Accuracy: ' +  str(accuracy*100) + '%'
+    print('Accuracy: ' +  str(accuracy*100) + '%')
 
     # Normalize confusion matrix
     normalizeMatrix = True
     if normalizeMatrix:
-      print "utility.confusion_matrix(). Non-normalized conf_mat:"  
-      print matrix
+      print("utility.confusion_matrix(). Non-normalized conf_mat:")
+      print(matrix)
       s = np.sum(matrix,1) # Sum each row
       for i in range(matrix.shape[0]):
         # Normalization handles class imbalance in training set
@@ -247,12 +247,12 @@ def importDataset(dir, dataset, categories):
         labels = [0,1,2,3,4,5,6]
 
     else:
-        print 'Error - Unsupported dataset: ' + dataset
+        print('Error - Unsupported dataset: ' + dataset)
         return None
 
     # Make sure some dataset was imported
     if len(imgList) <= 0:
-        print 'Error - No images found in ' + str(dir)
+        print('Error - No images found in ' + str(dir))
         return None
 
     # Return list of filenames
@@ -322,6 +322,6 @@ def loadAllEmojis(emojiDir=None, categories=None):
 @contextlib.contextmanager
 def nostdout():
     save_stdout = sys.stdout
-    sys.stdout = cStringIO.StringIO()
+    sys.stdout = StringIO()
     yield
     sys.stdout = save_stdout
