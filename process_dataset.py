@@ -10,7 +10,7 @@ from opencv_functions import *
 from utility_functions import *
 
 
-dirJaffe = 'datasets/jaffe'
+dirJaffe = 'jaffe'
 cropFlag = True # False disables image cropping
 plot_confusion = True
 
