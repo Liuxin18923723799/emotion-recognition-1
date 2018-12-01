@@ -11,6 +11,7 @@ from utility_functions import *
 
 
 dirJaffe = 'jaffe'
+dataset = 'jaffe'
 cropFlag = True # False disables image cropping
 plot_confusion = True
 
