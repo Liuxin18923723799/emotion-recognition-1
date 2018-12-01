@@ -6,7 +6,7 @@ import os, shutil, sys, time, re, glob
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2 as cv
-import Image
+from PIL import Image #import Image
 import caffe
 
 from utility_functions import *
@@ -189,7 +189,7 @@ def classify_emotions(input_list, color, categories, labels, plot_neurons, plot_
             images,labelsReduced = load_minibatch(input_list, color, labels, i, batchSize)
             loadTime = time.time() - t
             totalLoad += loadTime
-            print 'Batch of  ' + str(len(images)) + '  images.'
+            print('Batch of  ' + str(len(images)) + '  images.')
 
             # images is a list of input images
             # Input images should be WxHx3, e.g. 490x640x3
@@ -212,14 +212,14 @@ def classify_emotions(input_list, color, categories, labels, plot_neurons, plot_
             i += batchSize
         
         # Print all timing metrics
-        print "\nTiming data for classify_emotions() (minibatch mode):"
+        print("\nTiming data for classify_emotions() (minibatch mode):")
         for i in range(len(metrics)):
             bs, ltime, ptime = metrics[i]
-            print "Batch " + str(i) + " (" + str(bs) + " images):\tLoad: " + str(ltime) + "s\t Predict: " + str(ptime) + "s"
-        print "\nTotal images: " + str(len(input_list))
-        print "Total time loading: " + str(totalLoad) + "\t(" + str(float(totalLoad)/len(input_list)) + "s / image)"
-        print "Total time predicting: " + str(totalPredict) + "\t(" + str(float(totalPredict)/len(input_list)) + "s / image)"
-        print " "
+            print("Batch " + str(i) + " (" + str(bs) + " images):\tLoad: " + str(ltime) + "s\t Predict: " + str(ptime) + "s")
+        print("\nTotal images: " + str(len(input_list)))
+        print("Total time loading: " + str(totalLoad) + "\t(" + str(float(totalLoad)/len(input_list)) + "s / image)")
+        print("Total time predicting: " + str(totalPredict) + "\t(" + str(float(totalPredict)/len(input_list)) + "s / image)")
+        print(" ")
 
     else:
         loadTime, predictTime = 0, 0
@@ -250,10 +250,10 @@ def classify_emotions(input_list, color, categories, labels, plot_neurons, plot_
             print(img_file.split('/')[-1]+': '+categories[prediction.argmax()])
 
         # Print timing metrics:
-        print "\nTiming data for classify_emotions() (serial mode):"
-        print "Load time:   " + str(loadTime)    + "s\t(" + str(loadTime/numImages)    + "s / image)"
-        print "Predict time:" + str(predictTime) + "s\t(" + str(predictTime/numImages) + "s / image)"
-        print " "
+        print("\nTiming data for classify_emotions() (serial mode):")
+        print("Load time:   " + str(loadTime)    + "s\t(" + str(loadTime/numImages)    + "s / image)")
+        print("Predict time:" + str(predictTime) + "s\t(" + str(predictTime/numImages) + "s / image)")
+        print(" ")
 
     if plot_neurons:
         layer = 'conv1'

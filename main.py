@@ -15,7 +15,7 @@ import os, shutil, sys, time, re, glob
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2 as cv
-import Image
+from PIL import Image #import Image
 import caffe
 
 from caffe_functions import *
@@ -68,7 +68,7 @@ elif dataset.lower() == 'training':
     cropFlag = False
     useMean = True
 else:
-    print 'Error - Unsupported dataset: ' + dataset
+    print('Error - Unsupported dataset: ' + dataset)
     sys.exit(0)
 
 # Clean up and discard anything from the last run
@@ -76,7 +76,7 @@ dirCrop = dir + '/cropped'
 rmdir(dirCrop)
 
 # Master list of categories for EmotitW network
-categories = [ 'Angry' , 'Disgust' , 'Fear' , 'Happy'  , 'Neutral' ,  'Sad' , 'Surprise']
+categories = ['Angry' , 'Disgust' , 'Fear' , 'Happy'  , 'Neutral' ,  'Sad' , 'Surprise']
 
 # Start keeping time:
 t0 = time.time()
@@ -99,8 +99,8 @@ classify_emotions(input_list, color, categories, labels, plot_neurons=False, plo
 classify_time = time.time() - start
 totalTime = time.time() - t0
 
-print '\nNumber of images: ' + str(len(input_list))
+print('\nNumber of images: ' + str(len(input_list)))
 if crop_time is not None:
-    print 'Crop time: ' + str(crop_time) + 's\t(' + str(crop_time / len(input_list)) + "s / image)"
-print 'Classify time: ' + str(classify_time) + 's\t(' + str(classify_time / len(input_list)) + "s / image)"
-print 'Total time: ' + str(totalTime) + 's\t(' + str(totalTime / len(input_list)) + "s / image)"
+    print('Crop time: ' + str(crop_time) + 's\t(' + str(crop_time / len(input_list)) + "s / image)")
+print('Classify time: ' + str(classify_time) + 's\t(' + str(classify_time / len(input_list)) + "s / image)")
+print('Total time: ' + str(totalTime) + 's\t(' + str(totalTime / len(input_list)) + "s / image)")
