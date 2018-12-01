@@ -2,7 +2,7 @@ import os, shutil, sys, time, re, glob
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2 as cv
-import Image
+from PIL import Image #import Image
 import caffe
 
 from caffe_functions import *
