@@ -19,7 +19,7 @@ dir = dirJaffe
 color = False
 single_face = True
 cropFlag = True
-useMean = False
+useMean = True
 
 categories = [ 'Angry' , 'Disgust' , 'Fear' , 'Happy'  , 'Neutral' ,  'Sad' , 'Surprise']
 
