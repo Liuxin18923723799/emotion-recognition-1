@@ -12,7 +12,7 @@ import caffe
 from utility_functions import *
 
 # Load mean caffe image
-def loadMeanCaffeImage(img="mean_training_image.binaryproto",curDir="datasets/"):
+def loadMeanCaffeImage(img="mean.binaryproto",curDir="datasets/"):
   mean_filename=os.path.join(curDir,img)
   proto_data = open(mean_filename, "rb").read()
   a = caffe.io.caffe_pb2.BlobProto.FromString(proto_data)
