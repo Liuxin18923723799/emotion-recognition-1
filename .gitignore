@@ -6,18 +6,3 @@
 
 # Ignore compiled python files
 *.pyc
-
-# Ignore any spurious image, text, or document files
-*.doc
-*.docx
-*.jpg
-*.jpeg
-*.tiff
-*.png
-*.txt
-
-# Ignore various directories
-datasets/
-models/
-
-
