@@ -6,23 +6,18 @@ import os, shutil, sys, time, re, glob
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2 as cv
-from PIL import Image
+from PIL  import Image
 import caffe
 
 from utility_functions import *
 
 def load_cascades():
     # Load Haar cascade files containing features
-#    cascPaths = ['models/haarcascades/haarcascade_frontalface_default.xml',
-#                 'models/haarcascades/haarcascade_frontalface_alt.xml',
-#                 'models/haarcascades/haarcascade_frontalface_alt2.xml',
-#                 'models/haarcascades/haarcascade_frontalface_alt_tree.xml'
-#                 'models/lbpcascades/lbpcascade_frontalface.xml']
-    cascPaths = ['/usr/share/opencv/haarcascades/haarcascades_fronta‌​lface_default.xml',
-                 '/usr/share/opencv/haarcascades/haarcascade_frontalface_alt.xml',
-                 '/usr/share/opencv/haarcascades/haarcascade_frontalface_alt2.xml',
-                 '/usr/share/opencv/haarcascades/haarcascade_frontalface_alt_tree.xml'
-                 '/usr/share/opencv/lbpcascades/lbpcascade_frontalface.xml']
+    cascPaths = ['models/haarcascades/haarcascade_frontalface_default.xml',
+                 'models/haarcascades/haarcascade_frontalface_alt.xml',
+                 'models/haarcascades/haarcascade_frontalface_alt2.xml',
+                 'models/haarcascades/haarcascade_frontalface_alt_tree.xml'
+                 'models/lbpcascades/lbpcascade_frontalface.xml']
     faceCascades = []
     for casc in cascPaths:
         faceCascades.append(cv.CascadeClassifier(casc))

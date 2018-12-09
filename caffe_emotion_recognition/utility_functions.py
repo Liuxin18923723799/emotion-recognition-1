@@ -6,9 +6,9 @@ import os, shutil, sys, time, re, glob, csv
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2 as cv
-from PIL import Image
 import caffe
 import datetime
+from PIL import Image
 from opencv_functions import *
 import contextlib
 from io import StringIO
@@ -56,7 +56,7 @@ def confusion_matrix(results, categories, plotConfusion=False):
     # Normalize confusion matrix
     normalizeMatrix = True
     if normalizeMatrix:
-      print("utility.confusion_matrix(). Non-normalized conf_mat:")
+      print("utility.confusion_matrix(). Non-normalized conf_mat:") 
       print(matrix)
       s = np.sum(matrix,1) # Sum each row
       for i in range(matrix.shape[0]):
@@ -322,6 +322,6 @@ def loadAllEmojis(emojiDir=None, categories=None):
 @contextlib.contextmanager
 def nostdout():
     save_stdout = sys.stdout
-    sys.stdout = StringIO()
+    sys.stdout = cStringIO.StringIO()
     yield
     sys.stdout = save_stdout

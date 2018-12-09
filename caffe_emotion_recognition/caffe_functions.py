@@ -189,7 +189,7 @@ def classify_emotions(input_list, color, categories, labels, plot_neurons, plot_
             images,labelsReduced = load_minibatch(input_list, color, labels, i, batchSize)
             loadTime = time.time() - t
             totalLoad += loadTime
-            print('Batch of  ' + str(len(images)) + '  images.')
+            print ('Batch of  ' + str(len(images)) + '  images.')
 
             # images is a list of input images
             # Input images should be WxHx3, e.g. 490x640x3
