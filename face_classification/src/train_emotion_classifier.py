@@ -5,6 +5,7 @@ Email: arriaga.camargo@gmail.com
 Github: https://github.com/oarriaga
 Description: Train emotion classification model
 """
+import matplotlib.pyplot as plt
 
 from keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
 from keras.callbacks import ReduceLROnPlateau
@@ -65,8 +66,15 @@ for dataset_name in datasets:
     num_samples, num_classes = emotions.shape
     train_data, val_data = split_data(faces, emotions, validation_split)
     train_faces, train_emotions = train_data
-    model.fit_generator(data_generator.flow(train_faces, train_emotions,
+    history = model.fit_generator(data_generator.flow(train_faces, train_emotions,
                                             batch_size),
                         steps_per_epoch=len(train_faces) / batch_size,
                         epochs=num_epochs, verbose=1, callbacks=callbacks,
                         validation_data=val_data)
+    plt.plot(history.history['acc'])
+    plt.plot(history.history['val_acc'])
+    plt.title('Model accuracy')
+    plt.ylabel('Accuracy')
+    plt.xlabel('Epoch')
+    plt.legend(['Train', 'Test'], loc='upper left')
+    plt.show()
