@@ -11,7 +11,7 @@ from keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
 from keras.callbacks import ReduceLROnPlateau
 from keras.preprocessing.image import ImageDataGenerator
 
-from models.cnn import simple_CNN
+from models.resnet import ResNet18
 from utils.datasets import DataManager
 from utils.datasets import split_data
 from utils.preprocessor import preprocess_input
@@ -37,8 +37,8 @@ data_generator = ImageDataGenerator(
                         horizontal_flip=True)
 
 # model parameters/compilation
-model = simple_CNN(input_shape, num_classes)
-model.compile(optimizer='adam', loss='categorical_crossentropy',
+model = ResNet18(input_shape, num_classes)
+model.compile(optimizer='adagrad', loss='categorical_crossentropy',
               metrics=['accuracy'])
 model.summary()
 

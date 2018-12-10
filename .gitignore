@@ -7,3 +7,4 @@ src/train_emotion_classifier_transfer_learning.py
 *.caffemodel
 *.prototxt
 *.binaryproto
+*.hdf5
