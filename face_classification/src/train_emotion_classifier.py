@@ -18,7 +18,7 @@ from utils.preprocessor import preprocess_input
 
 # parameters
 batch_size = 32
-num_epochs = 10000
+num_epochs = 100
 input_shape = (64, 64, 1)
 validation_split = .2
 verbose = 1
@@ -69,7 +69,7 @@ for dataset_name in datasets:
     history = model.fit_generator(data_generator.flow(train_faces, train_emotions,
                                             batch_size),
                         steps_per_epoch=len(train_faces) / batch_size,
-                        epochs=1, verbose=1, callbacks=callbacks,
+                        epochs=num_epochs, verbose=1, callbacks=callbacks,
                         validation_data=val_data)
     plt.plot(history.history['acc'])
     plt.plot(history.history['val_acc'])
