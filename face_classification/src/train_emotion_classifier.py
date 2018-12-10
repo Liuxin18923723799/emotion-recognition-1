@@ -11,7 +11,7 @@ from keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
 from keras.callbacks import ReduceLROnPlateau
 from keras.preprocessing.image import ImageDataGenerator
 
-from models.resnet import ResNet18
+from models.cnn import simple_CNN
 from utils.datasets import DataManager
 from utils.datasets import split_data
 from utils.preprocessor import preprocess_input
@@ -37,7 +37,7 @@ data_generator = ImageDataGenerator(
                         horizontal_flip=True)
 
 # model parameters/compilation
-model = ResNet18(input_shape, num_classes)
+model = simple_CNN(input_shape, num_classes)
 model.compile(optimizer='adam', loss='categorical_crossentropy',
               metrics=['accuracy'])
 model.summary()
@@ -69,7 +69,7 @@ for dataset_name in datasets:
     history = model.fit_generator(data_generator.flow(train_faces, train_emotions,
                                             batch_size),
                         steps_per_epoch=len(train_faces) / batch_size,
-                        epochs=num_epochs, verbose=1, callbacks=callbacks,
+                        epochs=1, verbose=1, callbacks=callbacks,
                         validation_data=val_data)
     plt.plot(history.history['acc'])
     plt.plot(history.history['val_acc'])
@@ -77,4 +77,5 @@ for dataset_name in datasets:
     plt.ylabel('Accuracy')
     plt.xlabel('Epoch')
     plt.legend(['Train', 'Test'], loc='upper left')
-    plt.show()
+    plt.savefig('accuracy.png')
+    print('ploted graph')

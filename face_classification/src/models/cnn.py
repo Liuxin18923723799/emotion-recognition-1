@@ -1,4 +1,4 @@
-from keras.layers import Activation, Convolution2D, Dropout, Conv2D
+from keras.layers import Activation, Convolution2D, Dropout, Conv2D, Dense
 from keras.layers import AveragePooling2D, BatchNormalization
 from keras.layers import GlobalAveragePooling2D
 from keras.models import Sequential
