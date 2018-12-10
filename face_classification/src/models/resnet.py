@@ -418,7 +418,8 @@ def ResNet(input_shape=None, classes=10, block='bottleneck', residual_unit='v2',
 def ResNet18(input_shape, classes):
     """ResNet with 18 layers and v2 residual units
     """
-    return ResNet(input_shape, classes, basic_block, repetitions=[2, 2, 2, 2])
+    print(input_shape)
+    return ResNet(input_shape, classes, basic_block, residual_unit='v1', repetitions=[2, 2, 2, 2])
 
 
 def ResNet34(input_shape, classes):
