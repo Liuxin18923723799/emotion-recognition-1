@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 from keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
 from keras.callbacks import ReduceLROnPlateau
 from keras.preprocessing.image import ImageDataGenerator
+from keras.optimizers import Adam
 
 from models.resnet import ResNet18
 from utils.datasets import DataManager
@@ -38,7 +39,8 @@ data_generator = ImageDataGenerator(
 
 # model parameters/compilation
 model = ResNet18(input_shape, num_classes)
-model.compile(optimizer='adagrad', loss='categorical_crossentropy',
+adam = Adam(lr=1.46e-3)
+model.compile(optimizer=adam, loss='categorical_crossentropy',
               metrics=['accuracy'])
 model.summary()
 
