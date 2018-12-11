@@ -6,7 +6,7 @@ import os, shutil, sys, time, re, glob, csv
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2 as cv
-import caffe
+#import caffe
 import datetime
 from PIL import Image
 from opencv_functions import *

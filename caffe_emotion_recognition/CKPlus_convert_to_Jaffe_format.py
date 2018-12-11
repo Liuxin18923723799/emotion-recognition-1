@@ -15,10 +15,10 @@ import os, shutil, sys, time, re, glob
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2 as cv
-import Image
-import caffe
+from PIL import Image
+#import caffe
 
-from caffe_functions import *
+#from caffe_functions import *
 from opencv_functions import *
 from utility_functions import *
 
@@ -56,8 +56,8 @@ mkdir(dirCrop)
 input_list = faceCrop(dirCrop, input_list, color, single_face)
 
 # Print outs
-print input_list
-print labels
+print(input_list)
+print(labels)
 
 # Rename all files
 for i in range(len(input_list)):
