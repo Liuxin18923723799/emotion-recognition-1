@@ -39,8 +39,7 @@ data_generator = ImageDataGenerator(
 
 # model parameters/compilation
 model = ResNet18(input_shape, num_classes)
-adam = Adam(lr=1.46e-3)
-model.compile(optimizer=adam, loss='categorical_crossentropy',
+model.compile(optimizer='adam', loss='categorical_crossentropy',
               metrics=['accuracy'])
 model.summary()
 
