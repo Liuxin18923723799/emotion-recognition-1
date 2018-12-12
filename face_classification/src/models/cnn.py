@@ -52,8 +52,10 @@ def simple_CNN(input_shape, num_classes):
     model.add(Convolution2D(
         filters=num_classes, kernel_size=(3, 3), padding='same'))
     model.add(GlobalAveragePooling2D())
-    model.add(Dense(num_classes, activation='softmax'))
     model.add(Activation('softmax', name='predictions'))
+    model.add(Dense(7))
+    model.add(Dropout(.5))
+    model.add(Dense(7))
     return model
 
 
